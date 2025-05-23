@@ -92,7 +92,7 @@ jobs:
           expo build:android --non-interactive --no-wait --platform android
 
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: sahti-apk
           path: ./Sahti-Testing/dist/*.apk
