@@ -63,3 +63,37 @@ jobs:
 
       - name: Print deployment status
         run: docker ps
+
+
+mobile-frontend:
+    name: Build Mobile App
+    runs-on: ubuntu-latest
+    needs: docker-build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        working-directory: ./Sahti-Testing
+        run: npm install
+
+      - name: Run tests (si tu as des tests)
+        working-directory: ./Sahti-Testing
+        run: npm test
+
+      - name: Build APK (si tu utilises Expo)
+        working-directory: ./Sahti-Testing
+        run: |
+          npm install -g expo-cli
+          expo build:android --non-interactive --no-wait --platform android
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: sahti-apk
+          path: ./Sahti-Testing/dist/*.apk
