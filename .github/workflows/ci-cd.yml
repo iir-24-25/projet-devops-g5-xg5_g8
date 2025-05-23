@@ -64,8 +64,7 @@ jobs:
       - name: Print deployment status
         run: docker ps
 
-
-mobile-frontend:
+  mobile-frontend:
     name: Build Mobile App
     runs-on: ubuntu-latest
     needs: docker-build
