@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="purple_1">#761F95</color>
+    <color name="purple_2">#B690CB</color>
+    <color name="purple_3">#CFC6FF</color>
+    <color name="gray">#CECECE</color>
+    <color name="gray_1">#F1EFEF</color>
+    <color name="purple_4">#C1A8E4</color>
+    <color name="purple_5">#761F95</color>
+    <color name="purple_6">#6750A4</color>
+    <color name="bleu_1">#F5EFFF</color>
+
+
+    <color name="dental_color">#2C0E61</color>      <!-- Violet pour dentaire -->
+    <color name="eye_color">#3F943F</color>         <!-- Vert pour ophtalmologie -->
+    <color name="heart_color">#CD2158</color>       <!-- Rouge pour cardiologie -->
+    <color name="lung_color">#8B4513</color>        <!-- Marron pour pneumologie -->
+    <color name="ear_color">#1E4C9A</color>         <!-- Bleu foncé pour ORL -->
+    <color name="ortho_color">#BA9839</color>       <!-- Orange pour orthopédie -->
+    <color name="neuro_color">#545A0B</color>       <!-- Violet foncé pour neurologie -->
+    <color name="pediatric_color">#BA1626</color>   <!-- Bleu clair pour pédiatrie -->
+    <color name="dermato_color">#B95115</color>     <!-- Orange foncé pour dermatologie -->
+    <color name="nephorologie_color">#241355</color>
+    <color name="generale_color">#8174A0</color>
+    <color name="nutritionniste_color">#57134E</color>
+
+</resources>

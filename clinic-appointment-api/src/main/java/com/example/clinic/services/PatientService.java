@@ -35,6 +35,8 @@ public class PatientService {
         patient.setEmail(dto.getEmail());
         patient.setPassword(passwordEncoder.encode(dto.getPassword()));
 
+
+
         return patientRepository.save(patient);
     }
 

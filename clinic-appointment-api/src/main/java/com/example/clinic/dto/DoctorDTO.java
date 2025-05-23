@@ -1,5 +1,7 @@
 package com.example.clinic.dto;
 
+import com.example.clinic.entities.Doctor;
+
 public class DoctorDTO {
 
     private String fullName;
@@ -12,7 +14,7 @@ public class DoctorDTO {
     private String password;
     private String photo;
 
-    public DoctorDTO() {
+    public DoctorDTO(Doctor doctor) {
     }
 
     // Getters & Setters

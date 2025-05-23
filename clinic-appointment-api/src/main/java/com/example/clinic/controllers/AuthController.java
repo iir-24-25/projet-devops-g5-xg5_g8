@@ -26,29 +26,29 @@ public class AuthController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    // Patient login
-    @PostMapping("/patients/login")
-    public ResponseEntity<?> loginPatient(@RequestBody LoginRequest request) {
-        Optional<Patient> patientOpt = patientRepository.findByEmail(request.getEmail());
-        if (patientOpt.isPresent()) {
-            Patient patient = patientOpt.get();
-            if (request.getPassword().equals(patient.getPassword())) {
-                return ResponseEntity.ok(new LoginResponse("token_patient", patient.getId().toString()));
-            }
-        }
-        return ResponseEntity.status(401).body("Invalid credentials");
-    }
-
     // Doctor login
     @PostMapping("/doctors/login")
     public ResponseEntity<?> loginDoctor(@RequestBody LoginRequest request) {
         Optional<Doctor> doctorOpt = doctorRepository.findByEmail(request.getEmail());
         if (doctorOpt.isPresent()) {
             Doctor doctor = doctorOpt.get();
-            if (request.getPassword().equals(doctor.getPassword())) {
+            if (passwordEncoder.matches(request.getPassword(), doctor.getPassword())) {
                 return ResponseEntity.ok(new LoginResponse("token_doctor", doctor.getId().toString()));
             }
         }
         return ResponseEntity.status(401).body("Invalid credentials");
     }
+    // Patient login
+    @PostMapping("/patients/login")
+    public ResponseEntity<?> loginPatient(@RequestBody LoginRequest request) {
+        Optional<Patient> patientOpt = patientRepository.findByEmail(request.getEmail());
+        if (patientOpt.isPresent()) {
+            Patient patient = patientOpt.get();
+            if (passwordEncoder.matches(request.getPassword(), patient.getPassword())) {
+                return ResponseEntity.ok(new LoginResponse("token_patient", patient.getId().toString()));
+            }
+        }
+        return ResponseEntity.status(401).body("Invalid credentials");
+    }
+
 }
