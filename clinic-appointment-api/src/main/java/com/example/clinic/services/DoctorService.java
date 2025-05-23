@@ -54,5 +54,8 @@ public class DoctorService {
         doctor.setPassword(passwordEncoder.encode(doctor.getPassword()));
         return doctorRepository.save(doctor);
     }
-
+    public Doctor getDoctorById(Long id) {
+        return doctorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Docteur non trouvé avec l'id : " + id));
+    }
 }
