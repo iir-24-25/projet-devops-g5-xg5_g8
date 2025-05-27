@@ -1,4 +1,3 @@
-Voici ton fichier GitHub Actions complet avec l'ajout d'un job pour tester le frontend mobile (tests unitaires) après la construction de l’APK :
 
 name: CI/CD - Full Pipeline
 
