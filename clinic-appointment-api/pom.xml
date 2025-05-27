@@ -1,14 +1,14 @@
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Add this parent section -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.2.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <groupId>com.example</groupId>
@@ -42,7 +42,6 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
-        <!-- This is already included in spring-boot-starter-data-jpa but keeping it for clarity -->
         <dependency>
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
@@ -63,4 +62,23 @@
             </plugin>
         </plugins>
     </build>
+
+    <!-- Profile DevOps -->
+    <profiles>
+        <profile>
+            <id>devops</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <spring.profiles.active>devops</spring.profiles.active>
+            </properties>
+            <build>
+                <filters>
+                    <filter>src/main/resources/devops.properties</filter>
+                </filters>
+                <finalName>${project.artifactId}-devops</finalName>
+            </build>
+        </profile>
+    </profiles>
 </project>
