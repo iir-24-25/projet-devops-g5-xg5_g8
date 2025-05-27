@@ -1,3 +1,5 @@
+
+
 name: CI/CD - Full Pipeline
 
 on:
@@ -34,11 +36,11 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build backend with devops profile (skip tests)
-        run: mvn clean install -Pdevops -DskipTests
+      - name: Build backend
+        run: mvn clean install -DskipTests
 
-      - name: Run backend tests with devops profile
-        run: mvn test -Pdevops
+      - name: Run backend tests
+        run: mvn test
 
   docker-build:
     name: Build Docker Images
